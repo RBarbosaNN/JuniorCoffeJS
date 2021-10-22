@@ -1,2 +1,4 @@
 # PrivadoCoffeJS
 Repository privado para compartilhar arquivos entre PC e MAc
+Testando integração entre GitGubDesktop e PC
+
