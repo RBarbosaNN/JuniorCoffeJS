@@ -1,5 +1,5 @@
 /*
- * A ideia do exercidio é determinar quantos passos foram necessários para atravessar a rua 
+ * A ideia do exercício é determinar quantos passos foram necessários para atravessar a rua 
  */
 
 const distanciaTotal = 40;
