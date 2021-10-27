@@ -1,18 +1,17 @@
 
 /*
- * A proposta desse exercício é pegar uma palavra e "soletrar" essa palavra. Por exemplo: s-o-l-e-t-r-a-r 
+    A proposta desse exercício é pegar uma palavra e "soletrar" essa palavra com todas as letras maiúscula. 
+    Por exemplo: Palavra: Programador.
+    O resultado seria: P-R-O-G-R-A-M-A-D-O-R
  */
 
 const palavra = 'JavaScript';
 
 function soletrar(palavra) {
-    let guardaPalavra = [];
-
-    for(let letra of palavra) {
-        guardaPalavra.push(letra)
-    }
+    let guardaPalavra = "";
+    guardaPalavra = palavra;
     
-    console.log(guardaPalavra);
+    console.log(guardaPalavra.split('').join('-'));
 
 }
 
