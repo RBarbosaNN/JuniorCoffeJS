@@ -28,17 +28,15 @@ function invertVetor(vetorOriginal, qtdRotacao) {
     }
     while (indiceDeRotacao <= qtdRotacao) {
         vetorProvisorio.unshift(vetorProvisorio[vetorProvisorio.length - 1]);
-        // console.log(`vetorProvisorio_2 = ${vetorProvisorio}`);
         vetorProvisorio.pop(vetorProvisorio[vetorProvisorio.length - 1]);
-        // console.log(`vetorProvisorio_3 = ${vetorProvisorio}`);
         vetorResultante = vetorProvisorio;
         indiceDeRotacao++;
     }
 
-    
+    console.log(`A quantidade de rotação solicitada foi igual a: ${qtdRotacao}`);
+    console.log(`Portanto, o vetor ficou assim:`);
     console.log(`vetorOriginal = ${vetorOriginal}`);
     console.log(`vetorResultante = ${vetorResultante}`);
-    // console.log(`vetorProvisorio_1 = ${vetorProvisorio}`);
     
 }
 
