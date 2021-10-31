@@ -9,35 +9,39 @@
         ["E", "A", "B", "C", "D"]
 
         Obsevação_1: Ainda não consegui resolver, mas estou quase! 
+        Observação_2: Consegui resolver hoje, 31/10/2021!
     ##############################################################################################################
  */
 
 
-let qtdRotacao = 1;
+let qtdRotacao = 2;
 let vetorOriginal = ["A", "B", "C", "D", "E"];
+
 
 function invertVetor(vetorOriginal, qtdRotacao) {
     let vetorProvisorio = [];
     let vetorResultante = [];
+    let indiceDeRotacao = 1;
 
-    for (let v of vetorOriginal) {
-        vetorProvisorio.push(v);
+    for (let i in vetorOriginal) {
+        vetorProvisorio.push(vetorOriginal[i]);
     }
-
-    console.log(`vetorOriginal = ${vetorOriginal}`);
-    // console.log(`vetorProvisorio_1 = ${vetorProvisorio}`);
-
-    if (qtdRotacao >= 1) {
-        vetorResultante = vetorProvisorio.unshift(vetorProvisorio[vetorOriginal.length-qtdRotacao]);
+    while (indiceDeRotacao <= qtdRotacao) {
+        vetorProvisorio.unshift(vetorProvisorio[vetorProvisorio.length - 1]);
         // console.log(`vetorProvisorio_2 = ${vetorProvisorio}`);
-        // console.log(`vr_1 - ${vetorResultante}`);
-        vetorResultante = vetorProvisorio.pop(vetorOriginal[vetorOriginal.length-qtdRotacao]);
-        // console.log(`vr_2 - ${vetorResultante}`);
+        vetorProvisorio.pop(vetorProvisorio[vetorProvisorio.length - 1]);
+        // console.log(`vetorProvisorio_3 = ${vetorProvisorio}`);
         vetorResultante = vetorProvisorio;
-        console.log(`vetorResultante = ${vetorResultante}`);
+        indiceDeRotacao++;
     }
 
-
+    
+    console.log(`vetorOriginal = ${vetorOriginal}`);
+    console.log(`vetorResultante = ${vetorResultante}`);
+    // console.log(`vetorProvisorio_1 = ${vetorProvisorio}`);
+    
 }
 
 invertVetor(vetorOriginal, qtdRotacao);
+
+
