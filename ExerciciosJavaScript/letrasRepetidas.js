@@ -37,26 +37,33 @@
 
     // identificaLetraRepedita(vetor);
 
-    //O algoritmo acima não é meu e não funcionou! O que esta abaixo é do professor e funcionou.
+    //Observação_1: O algoritmo acima é meu e não funcionou!
+    //Observação_2: O algoritmo abaixo é do professor e temos um problema. O vetor original para na letra b. Quando,
+    //adicionamos mais elementos nessa lista, o algoritmo não faz o que deveria fazer, ou seja, do professor também não funcionou!
 
 
 
-let vetor = ["a", "b", "a", "a", "c", "b"];
+let vetorOriginal = ["a", "b", "a", "a", "c", "b", "c", "k", "x", "k", "z", "z"];
+let vetorOrganizado = [];
 
 function encontraIsolado(vetor) {
-    let classifique = vetor.sort(); //Qual a necessidade de embaralhar o vetor aqui? R: Pesquisando resposta...
+    let classifique = vetor.sort(); //Qual a necessidade do sort() aqui? R: 
+    /*
+     Explicação da função sort()
+     Posição 690 do livro: Princíopios de orientação a Objetos em JavaScript
+     */
     let letraUnica = '';
-    classifique.forEach((element, index) => {
+    classifique.forEach((element, index) => { //Para que serve o forEach? R: Pesquisando resposta...
         let thisElement = classifique[index];
-        let nextEle = classifique[index + 1];
-
-        if (thisElement == nextEle) {
+        let nextElement = classifique[index + 1];
+        
+        if (thisElement == nextElement) {
             index++;
         } else {
             letraUnica = thisElement;
         }
     })
-    return `A única letra que não se repete dentro do vetor = ${vetor} é a letra: ${letraUnica}`;
-
+    return `A única letra que não se repete dentro do vetorOriginal = ${vetor} é a letra: ${letraUnica}`;
 }
-console.log(encontraIsolado(vetor));
+
+console.log(encontraIsolado(vetorOriginal));
