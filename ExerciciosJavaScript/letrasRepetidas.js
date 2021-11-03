@@ -68,20 +68,34 @@
 
 // console.log(encontraIsolado(vetorOriginal));
 
+//O codigo abaixo é da Pigs e resolveu o problema!
 
 let vetorOriginal = ["a", "b", "a", "a", "c", "b", "c", "k", "x", "k", "z", "z"];
 let vetorOrganizado = [];
 
 function encontraLetraUnica(vetor) {
-    let letraParaComparar = '';
-    let letraUnicaEncontrada = [];
-    let letrasRepedidasEncontradas = [];
-    let contador = 0;
-    for (let l of vetor) {
-        letraParaComparar = l;
-        //Continuar esse algoritima em outra hora
+    let letraAlvo = [];
+    let indiceDeControle = 0;
+    let indiceLetraTestada = 0;
+    let repeticao = false;
+
+    for (let letra of vetor) {
+        repeticao = false;
+        while (indiceDeControle <= vetor.length-1) {
+            if (indiceLetraTestada != indiceDeControle) {
+                if (letra == vetor[indiceDeControle]) {
+                    repeticao = true;
+                }
+            }
+            indiceDeControle += 1;
+        }
+        if (repeticao == false) {
+            letraAlvo.push(letra);
+        }
+        indiceLetraTestada += 1;
+        indiceDeControle = 0;
     }
-    console.log(letraUnicaEncontrada);
+    console.log(`A única letra que não se repete dentro da lista é: ${letraAlvo}`);
 }
 
 encontraLetraUnica(vetorOriginal);
