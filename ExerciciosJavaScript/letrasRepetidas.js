@@ -43,27 +43,45 @@
 
 
 
+// let vetorOriginal = ["a", "b", "a", "a", "c", "b", "c", "k", "x", "k", "z", "z"];
+// let vetorOrganizado = [];
+
+// function encontraIsolado(vetor) {
+//     let classifique = vetor.sort(); //Qual a necessidade do sort() aqui? R: 
+//     /*
+//      Explicação da função sort()
+//      Posição 690 do livro: Princíopios de orientação a Objetos em JavaScript
+//      */
+//     let letraUnica = '';
+//     classifique.forEach((element, index) => { //Para que serve o forEach? R: Pesquisando resposta...
+//         let thisElement = classifique[index];
+//         let nextElement = classifique[index + 1];
+        
+//         if (thisElement == nextElement) {
+//             index++;
+//         } else {
+//             letraUnica = thisElement;
+//         }
+//     })
+//     return `A única letra que não se repete dentro do vetorOriginal = ${vetor} é a letra: ${letraUnica}`;
+// }
+
+// console.log(encontraIsolado(vetorOriginal));
+
+
 let vetorOriginal = ["a", "b", "a", "a", "c", "b", "c", "k", "x", "k", "z", "z"];
 let vetorOrganizado = [];
 
-function encontraIsolado(vetor) {
-    let classifique = vetor.sort(); //Qual a necessidade do sort() aqui? R: 
-    /*
-     Explicação da função sort()
-     Posição 690 do livro: Princíopios de orientação a Objetos em JavaScript
-     */
-    let letraUnica = '';
-    classifique.forEach((element, index) => { //Para que serve o forEach? R: Pesquisando resposta...
-        let thisElement = classifique[index];
-        let nextElement = classifique[index + 1];
-        
-        if (thisElement == nextElement) {
-            index++;
-        } else {
-            letraUnica = thisElement;
-        }
-    })
-    return `A única letra que não se repete dentro do vetorOriginal = ${vetor} é a letra: ${letraUnica}`;
+function encontraLetraUnica(vetor) {
+    let letraParaComparar = '';
+    let letraUnicaEncontrada = [];
+    let letrasRepedidasEncontradas = [];
+    let contador = 0;
+    for (let l of vetor) {
+        letraParaComparar = l;
+        //Continuar esse algoritima em outra hora
+    }
+    console.log(letraUnicaEncontrada);
 }
 
-console.log(encontraIsolado(vetorOriginal));
+encontraLetraUnica(vetorOriginal);
