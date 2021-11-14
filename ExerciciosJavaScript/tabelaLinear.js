@@ -27,9 +27,9 @@ console.log('Organiza o array em ordem crescente');
 
 */
 
-let arrayForaDeOrdem = [90, 70, 50, 80, 60, 85];
+let array0 = [90, 70, 50, 80, 60, 85];
 
-function sort(arrays) {
+function sort1(arrays) {
   console.log(`Array original: ${arrays}`);
   for (let i = 0; i < arrays.length - 1; i++) {
     let isSwap = false;
@@ -47,10 +47,10 @@ function sort(arrays) {
       break
     }
   }
-  console.log(`Array ordenado: ${arrays}`);
+  console.log(`Array ordenado do menor para o maior: ${arrays}`);
 }
 
-sort(arrayForaDeOrdem);
+sort1(array0);
 
 console.log('########################################');
 console.log();
@@ -88,3 +88,42 @@ min(array1);
 console.log('########################################');
 console.log();
 
+/*
+
+  Se arrays[j] > arrays[j + 1] forem trocados. Os elementos restantes
+  repetem esse processo até a ordenar ser concluída.
+
+  Situação 1: Ordenar os seguintes dados do maior para o menor:
+  [90, 60, 50, 80, 70, 85]
+
+  Explicação: permutar(swap), Valor máximo(max value)
+
+*/
+
+let array2 = [90, 60, 50, 80, 70, 85];
+
+function sort2(arrays) {
+  console.log(`Array original: ${arrays}`);
+  for (let i = 0; i < arrays.length - 1; i++) {
+    let isSwap = false;
+    for (let j = 0; j < arrays.length - i - 1; j++) {
+      //troca
+      if (arrays[j] < arrays[j + 1]) {
+        let flag = arrays[j];
+        arrays[j] = arrays[j + 1];
+        arrays[j + 1] = flag;
+        isSwap = true;
+      }
+    }
+    //Sem troca, pare de classificar
+    if (!isSwap) {
+      break
+    }
+  }
+  console.log(`Array ordenado do maior para o menor: ${arrays}`);
+}
+
+sort2(array2);
+
+console.log('########################################');
+console.log();
