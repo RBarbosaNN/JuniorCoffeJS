@@ -1,18 +1,3 @@
 
 
-Fulano de Tal
-123.567.789.33
-11 97788-2222
-fulano@hotmail.com
-Rua Sem Numero São Paulo - SP
-1978/11/23
-2021/02/16
- É Gordão!
-Nome: Fulana Sicrana
-CPF: 788.987.908-29
-Telefone: 11 977867785
-E-Mail: sicrana@g1.com
-Endereço: Rua Qualquer n. 100 São Paulo - SP
-Data de Nascimento: 1977/09/19
-Data do diagnostico positivo para SARS-COV-2: 2021/03/17
-Comorbidades: É Gordona
+
