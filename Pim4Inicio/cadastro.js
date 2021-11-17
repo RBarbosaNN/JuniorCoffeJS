@@ -16,8 +16,8 @@ function iniciaCadastro() {
     escreveNoTxt(`E-Mail: ${emailStr}`);
     let enderecoStr = entradaDeDadosPeloUsuario('Endereço: ');
     escreveNoTxt(`Endereço: ${enderecoStr}`);
-    verificaDataNascimento()
-    verificaDataDiagnostico()
+    verificaDataNascimento();
+    verificaDataDiagnostico();
     let comorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? Qual?');
     escreveNoTxt(`Comorbidades: ${comorbidadesStr}`);
     escreveNoTxt('######################################################################');
@@ -40,10 +40,7 @@ function iniciaCadastro() {
             const dia = addZeroAEsquerda(data.getDate());
             const mes = addZeroAEsquerda(data.getMonth() + 1);
             const ano = addZeroAEsquerda(data.getFullYear());
-            function addZeroAEsquerda(num) {
-                return num >= 10 ? num : `0${num}`;
-            }
-            validaDN = true
+            validaDN = true;
             return (`${dia}/${mes}/${ano}`);
         }
     }
@@ -87,15 +84,33 @@ function iniciaCadastro() {
     function verificaDataNascimento() {
         let dataNascimentoStr = formateParaTipoDataN(entradaDeDadosPeloUsuario('Data de Nascimento no formato AAAA/MM/DD: '));
         if (validaDN == true) {
-            escreveNoTxt(`Data de Nascimento: ${dataNascimentoStr}`);
+            console.log(`Entrei aqui e o validaDN = ${validaDN}`);
+            if (typeof dataNascimentoStr === 'undefined') {
+                // console.log(`dataNascimentoStr = ${dataNascimentoStr}, por isso não gravei no txt!`);
+            } else {
+                escreveNoTxt(`Data de Nascimento: ${dataNascimentoStr}`);
+            }
+        } else {
+            verificaDataNascimento();
         }
     }
 
     function verificaDataDiagnostico() {
         let dataDiagnosticoStr = formateParaTipoDataD(entradaDeDadosPeloUsuario('Data do Diagnostico no formato AAAA/MM/DD: '));
         if (validaDD == true) {
-            escreveNoTxt(`Data do diagnostico positivo para SARS-COV-2: ${dataDiagnosticoStr}`);
+            console.log(`Entrei aqui e o validaDD = ${validaDD}`);
+            if (typeof dataDiagnosticoStr === 'undefined') {
+                // console.log(`dataDiagnosticoStr = ${dataDiagnosticoStr}, por isso não gravei no txt!`);
+            } else {
+                escreveNoTxt(`Data do diagnostico positivo para SARS-COV-2: ${dataDiagnosticoStr}`);
+            }
+        } else {
+            verificaDataDiagnostico();
         }
+    }
+
+    function addZeroAEsquerda(num) {
+        return num >= 10 ? num : `0${num}`;
     }
 
 }
