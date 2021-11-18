@@ -5,6 +5,8 @@ const entradaDeDadosPeloUsuario = require('prompt-sync')({sigint: true});
 function iniciaCadastro() {
     let validaDN = false;
     let validaDD = false;
+    let anoParaCalcularIdade = new Date();
+    let salvaTxtSecretaria = false;
 
     let nomeStr = entradaDeDadosPeloUsuario('Digite o nome completo do paciente: ');
     escreveNoTxt(`Nome: ${nomeStr}`);
@@ -23,8 +25,8 @@ function iniciaCadastro() {
     escreveNoTxt('######################################################################');
 
     function formateParaTipoDataN(pData) {
-        const data = new Date(pData);
-        if (isNaN(data)) {
+        const convertParaData = new Date(pData);
+        if (isNaN(convertParaData)) {
             console.log('<*----------------------------------------------------------*>');
             console.log('O argmuento passado para a função não é uma instância de Date');
             console.log('Por favor, declare a data no formato: AAAA/MM/DD');
@@ -37,9 +39,10 @@ function iniciaCadastro() {
             }
 
         } else {
-            const dia = addZeroAEsquerda(data.getDate());
-            const mes = addZeroAEsquerda(data.getMonth() + 1);
-            const ano = addZeroAEsquerda(data.getFullYear());
+            anoParaCalcularIdade = convertParaData;
+            const dia = addZeroAEsquerda(convertParaData.getDate());
+            const mes = addZeroAEsquerda(convertParaData.getMonth() + 1);
+            const ano = addZeroAEsquerda(convertParaData.getFullYear());
             validaDN = true;
             return (`${dia}/${mes}/${ano}`);
         }
@@ -71,7 +74,7 @@ function iniciaCadastro() {
 
     function escreveNoTxt (dados) {
         
-        fs.appendFileSync('arquivo.txt', dados + '\n', (err) => {
+        fs.appendFileSync('arquivoHosptal.txt', dados + '\n', (err) => {
             if (err) {
                 throw err;
             } else {
@@ -84,10 +87,11 @@ function iniciaCadastro() {
     function verificaDataNascimento() {
         let dataNascimentoStr = formateParaTipoDataN(entradaDeDadosPeloUsuario('Data de Nascimento no formato AAAA/MM/DD: '));
         if (validaDN == true) {
-            console.log(`Entrei aqui e o validaDN = ${validaDN}`);
+            // console.log(`Entrei aqui e o validaDN = ${validaDN}`);
             if (typeof dataNascimentoStr === 'undefined') {
                 // console.log(`dataNascimentoStr = ${dataNascimentoStr}, por isso não gravei no txt!`);
             } else {
+                calculaIdade(anoParaCalcularIdade);
                 escreveNoTxt(`Data de Nascimento: ${dataNascimentoStr}`);
             }
         } else {
@@ -98,7 +102,7 @@ function iniciaCadastro() {
     function verificaDataDiagnostico() {
         let dataDiagnosticoStr = formateParaTipoDataD(entradaDeDadosPeloUsuario('Data do Diagnostico no formato AAAA/MM/DD: '));
         if (validaDD == true) {
-            console.log(`Entrei aqui e o validaDD = ${validaDD}`);
+            // console.log(`Entrei aqui e o validaDD = ${validaDD}`);
             if (typeof dataDiagnosticoStr === 'undefined') {
                 // console.log(`dataDiagnosticoStr = ${dataDiagnosticoStr}, por isso não gravei no txt!`);
             } else {
@@ -111,6 +115,36 @@ function iniciaCadastro() {
 
     function addZeroAEsquerda(num) {
         return num >= 10 ? num : `0${num}`;
+    }
+
+    function calculaIdade(cIdade) {
+
+        let anoDeNascimento = cIdade;
+        let anoAtual = new Date();
+        let idade = (anoAtual.getFullYear() - anoDeNascimento.getFullYear());
+
+        if(idade >= 65) {
+            console.log(`Ano de nascimento informado foi: ${anoDeNascimento.getFullYear()}`);
+            console.log(`Portanto, sua idade é: ${idade} anos`);
+            escreveNoTxtDaSecretaria(`CEP do Paciente que testou positivo: ${enderecoStr}`);
+            escreveNoTxtDaSecretaria(`Idade do paciente que testou positivo: ${idade}`);
+        } else {
+            console.log(`Ano de nascimento informado foi: ${anoDeNascimento.getFullYear()}`);
+            console.log(`Portanto, sua idade é: ${idade} anos`);
+        }
+
+    }
+
+    function escreveNoTxtDaSecretaria (dados) {
+        
+        fs.appendFileSync('arquivoSecretaria.txt', dados + '\n', (err) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log('O arquivo foi criado!');
+            }
+        });
+    
     }
 
 }
