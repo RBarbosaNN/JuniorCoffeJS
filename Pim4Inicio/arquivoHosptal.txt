@@ -13,7 +13,8 @@ CPF: 666.666.666-17
 Telefone: 617111717
 E-Mail: jovenpanos@vendidototal.jp
 Endereço: Corredor de cadeia 171 RJ
-Data de Nascimento: 01/01/1900
-Data do diagnostico positivo para SARS-COV-2: 01/03/2021
-Comorbidades:  Mais Ladrão que o outro
+CEP: 01313-171
+Data de Nascimento: 13/01/1938
+Data do diagnostico positivo para SARS-COV-2: 02/03/2021
+Comorbidades:  Ladrão Imortal!
 ######################################################################

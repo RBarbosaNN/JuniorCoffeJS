@@ -6,7 +6,6 @@ function iniciaCadastro() {
     let validaDN = false;
     let validaDD = false;
     let anoParaCalcularIdade = new Date();
-    let salvaTxtSecretaria = false;
 
     let nomeStr = entradaDeDadosPeloUsuario('Digite o nome completo do paciente: ');
     escreveNoTxt(`Nome: ${nomeStr}`);
@@ -18,9 +17,11 @@ function iniciaCadastro() {
     escreveNoTxt(`E-Mail: ${emailStr}`);
     let enderecoStr = entradaDeDadosPeloUsuario('Endereço: ');
     escreveNoTxt(`Endereço: ${enderecoStr}`);
+    let cepStr = entradaDeDadosPeloUsuario(`CEP: `)
+    escreveNoTxt(`CEP: ${cepStr}`);
     verificaDataNascimento();
     verificaDataDiagnostico();
-    let comorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? Qual?');
+    let comorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? Qual? ');
     escreveNoTxt(`Comorbidades: ${comorbidadesStr}`);
     escreveNoTxt('######################################################################');
 
@@ -117,20 +118,17 @@ function iniciaCadastro() {
         return num >= 10 ? num : `0${num}`;
     }
 
-    function calculaIdade(cIdade) {
+    function calculaIdade(calcIdade) {
 
-        let anoDeNascimento = cIdade;
+        let anoDeNascimento = calcIdade;
         let anoAtual = new Date();
         let idade = (anoAtual.getFullYear() - anoDeNascimento.getFullYear());
 
         if(idade >= 65) {
-            console.log(`Ano de nascimento informado foi: ${anoDeNascimento.getFullYear()}`);
-            console.log(`Portanto, sua idade é: ${idade} anos`);
-            escreveNoTxtDaSecretaria(`CEP do Paciente que testou positivo: ${enderecoStr}`);
-            escreveNoTxtDaSecretaria(`Idade do paciente que testou positivo: ${idade}`);
-        } else {
-            console.log(`Ano de nascimento informado foi: ${anoDeNascimento.getFullYear()}`);
-            console.log(`Portanto, sua idade é: ${idade} anos`);
+            // console.log(`Ano de nascimento informado foi: ${anoDeNascimento.getFullYear()}`);
+            // console.log(`Portanto, sua idade é: ${idade} anos`);
+            escreveNoTxtDaSecretaria(`CEP do Paciente que testou positivo: ${cepStr}`);
+            escreveNoTxtDaSecretaria(`Idade do paciente que testou positivo: ${idade} anos`);
         }
 
     }
