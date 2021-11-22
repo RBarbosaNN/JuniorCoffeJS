@@ -14,15 +14,15 @@ function iniciaCadastro() {
     let telStr = entradaDeDadosPeloUsuario('Telefone: ');
     escreveNoTxt(`Telefone: ${telStr}`);
     let emailStr = entradaDeDadosPeloUsuario('E-mail: ');
-    escreveNoTxt(`E-Mail: ${emailStr}`);
+    verificaEmail(emailStr);
     let enderecoStr = entradaDeDadosPeloUsuario('Endereço: ');
     escreveNoTxt(`Endereço: ${enderecoStr}`);
     let cepStr = entradaDeDadosPeloUsuario(`CEP: `)
     escreveNoTxt(`CEP: ${cepStr}`);
     verificaDataNascimento();
     verificaDataDiagnostico();
-    let comorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? Qual? ');
-    escreveNoTxt(`Comorbidades: ${comorbidadesStr}`);
+    let perguntaSeTemcomorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? s/n ')
+    verificaComorbidades(perguntaSeTemcomorbidadesStr);
     escreveNoTxt('######################################################################');
 
     function formateParaTipoDataN(pData) {
@@ -145,6 +145,51 @@ function iniciaCadastro() {
     
     }
 
+    function verificaEmail(email) {
+        if ((typeof (email) === 'string') && (email.search("@") != -1)) {
+            let emailSeparado = email.split("@");
+            let usuario = emailSeparado[0];
+            let dominio = emailSeparado[1];
+    
+            if ((usuario.length >= 1) &&
+                (dominio.length >= 3) &&
+                (usuario.search("@") == - 1) &&
+                (dominio.search("@") == - 1) &&
+                (usuario.search(" ") == - 1) &&
+                (dominio.search(" ") == - 1) &&
+                (dominio.search(".") != - 1) &&
+                (dominio.indexOf(".") >= 1) &&
+                (dominio.lastIndexOf(".") < dominio.length - 1)) {
+                console.log("Email valido!");
+                escreveNoTxt(`Email: ${email}`);
+            } else {
+                console.log("Favor digitar um email valido");
+                emailStr = entradaDeDadosPeloUsuario('E-mail: ');
+                verificaEmail(emailStr);
+            }
+        } else {
+            console.log("Favor digitar um email valido");
+            emailStr = entradaDeDadosPeloUsuario('E-mail: ');
+            verificaEmail(emailStr);
+        } 
+    }
+
+    function verificaComorbidades(resposta) {
+        console.log(resposta);
+        if (resposta === 's') {
+            let comorbidadesStr = entradaDeDadosPeloUsuario('Qual comorbidades? ');
+            escreveNoTxt(`Paciente tem as seguintes comorbidades: ${comorbidadesStr}`);
+            escreveNoTxtDaSecretaria(`Paciente tem as seguintes comorbidades: ${comorbidadesStr}`);
+            escreveNoTxtDaSecretaria(`CEP: ${cepStr}`);
+        } else if (resposta === 'n') {
+            escreveNoTxt(`Paciente não possui comorbidades!`);
+        } else {
+            console.log("Por favor responda com uma única letra minúscula: s ou n");
+            perguntaSeTemcomorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? s/n ');
+            verificaComorbidades(perguntaSeTemcomorbidadesStr);
+        }
+
+    }
 
 }
     
