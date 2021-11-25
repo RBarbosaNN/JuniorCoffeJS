@@ -1,43 +1,38 @@
 
-let emailStr = "exemplo@.gmail.com";
+let testeCpf = '12332d1233';
 
-function verificaEmail(email) {
-    if ((typeof (email) === 'string') && (email.search("@") != -1)) {
-        let emailSeparado = email.split("@");
-        let usuario = emailSeparado[0];
-        let dominio = emailSeparado[1];
+function verificaCpf(CPF) {
+    
+    let recebeCpf = CPF.toString(); //Converte o CPF que é tipo number para o tipo string
 
-        if ((usuario.length >= 1) &&
-            (dominio.length >= 3) &&
-            (usuario.search("@") == - 1) &&
-            (dominio.search("@") == - 1) &&
-            (usuario.search(" ") == - 1) &&
-            (dominio.search(" ") == - 1) &&
-            (dominio.search(".") != - 1) &&
-            (dominio.indexOf(".") >= 1) &&
-            (dominio.lastIndexOf(".") < dominio.length - 1)) {
-            console.log("Email valido!");
-        } else {
-            console.log("Favor digitar um email valido");
-        }
+    if (typeof recebeCpf === 'string') {
+        console.log('recebeCpf é string');
     } else {
-        console.log("Favor digitar um email valido");
-    } 
+        console.log('recebeCpf não é string');
+    }
+
+    //Procura por qualquer letra maiúscula entre A e Z, se não encontrar retorna -1. Se não, retorna o índice que deu match
+    console.log(`Tem letra maiúscula dentro de recebeCpf? ${recebeCpf.search(/[A-Z]/g)}`); 
+
+    //Procura por qualquer letra minúscula entre a e z, se não encontrar retorna -1. Se não, retorna o índice que deu match
+    console.log(`Tem letra minúscula dentro de recebeCpf? ${recebeCpf.search(/[a-z]/g)}`);
+
+    if((recebeCpf.search(/[A-Z]/g) == - 1) && (recebeCpf.search(/[a-z]/g) == -1)) {
+        console.log('CPF Valido!');
+    } else {
+        console.log('CPF Invalido');
+    }
+
 }
 
-verificaEmail(emailStr);
 
+verificaCpf(testeCpf);
 
-// let usuario = email.value.subString(0, email.value.indexOf("@"));
-// let dominio = email.value.subString(email.value.indexOf("@") + 1, email.value.length);
-
-// console.log(`usuario = ${usuario}`);
-// console.log(`dominio = ${dominio}`);
-// console.log(`usuario.search("@") = ${usuario.search("@")}`);
-// console.log(`(dominio.search("@") = ${dominio.search("@")}`);
-// console.log(`usuario.search(" ") = ${usuario.search(" ")}`);
-// console.log(`dominio.search(" ") = ${dominio.search(" ")}`);
-// console.log(`dominio.search(".") = ${dominio.search(".")}`);
-// console.log(`dominio.indexOf(".") = ${dominio.indexOf(".")}`);
-// console.log(`dominio.lastIndexOf(".") = ${dominio.lastIndexOf(".")}`);
-// console.log(`dominio.legth -1 = ${dominio.length -1}`);
+// for (let digito of recebeCpf) {
+//     console.log(digito);
+//     if((digito.search(/[A - Z]/g) != - 1) && (digito.search(/[a - z]/g) != -1)) {
+//         console.log('CPF Valido!');
+//     } else {
+//         console.log('CPF Invalido');
+//     }
+// }
