@@ -1,8 +1,11 @@
 
 const fs = require('fs');
 const entradaDeDadosPeloUsuario = require('prompt-sync')({sigint: true});
+const atendente = 'atendente';
+const senha = 'atendente123';
 
 function iniciaCadastro() {
+
     let validaDN = false;
     let validaDD = false;
     let anoParaCalcularIdade = new Date();
@@ -243,5 +246,32 @@ function iniciaCadastro() {
     
 
 
+function pedeLogin() {
 
-iniciaCadastro();
+    console.log();
+    console.log('****************************************************');
+    console.log('Bem vindo ao PIM 4 - Sistema de cadastro SARS-COV-2');
+    let pedeUser = entradaDeDadosPeloUsuario('Digite o nome de usuario(a): ');
+    let pedeSenha = entradaDeDadosPeloUsuario('Digite a senha: ');
+    console.log('****************************************************');
+    console.log();
+    
+    if((pedeUser === atendente) && (pedeSenha === senha)) {
+        console.log('Login realizado com sucesso!');
+        console.log('<<<<<<PIM 4 - Sistema de cadastro SARS-COV-2>>>>>>>>');
+        console.log('Inicie o cadastro do paciente.');
+        iniciaCadastro();
+    } else {
+        console.log('#####################################################');
+        console.log();
+        console.log('Usuário ou senha invalida! Por favor tente novamente.');
+        console.log();
+        console.log('#####################################################');
+        pedeLogin();
+    }
+
+}
+
+
+
+pedeLogin();
