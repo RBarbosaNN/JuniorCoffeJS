@@ -10,18 +10,18 @@ function iniciaCadastro() {
     let nomeStr = entradaDeDadosPeloUsuario('Digite o nome completo do paciente: ');
     escreveNoTxt(`Nome: ${nomeStr}`);
     let cpfStr = entradaDeDadosPeloUsuario('CPF: ');
-    escreveNoTxt(`CPF: ${cpfStr}`);
+    verificaCpf(cpfStr);
     let telStr = entradaDeDadosPeloUsuario('Telefone: ');
-    escreveNoTxt(`Telefone: ${telStr}`);
+    verificaCel(telStr);
     let emailStr = entradaDeDadosPeloUsuario('E-mail: ');
     verificaEmail(emailStr);
     let enderecoStr = entradaDeDadosPeloUsuario('Endereço: ');
     escreveNoTxt(`Endereço: ${enderecoStr}`);
-    let cepStr = entradaDeDadosPeloUsuario(`CEP: `)
-    escreveNoTxt(`CEP: ${cepStr}`);
+    let cepStr = entradaDeDadosPeloUsuario(`CEP: `);
+    verificaCep(cepStr);
     verificaDataNascimento();
     verificaDataDiagnostico();
-    let perguntaSeTemcomorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? s/n ')
+    let perguntaSeTemcomorbidadesStr = entradaDeDadosPeloUsuario('Paciente tem comorbidades? s/n ');
     verificaComorbidades(perguntaSeTemcomorbidadesStr);
     escreveNoTxt('######################################################################');
 
@@ -58,7 +58,7 @@ function iniciaCadastro() {
             console.log('<*----------------------------------------------------------*>');
 
             if(validaDD == false) {
-                verificaDataDiagnostico()
+                verificaDataDiagnostico();
             }
 
         } else {
@@ -180,7 +180,7 @@ function iniciaCadastro() {
             let comorbidadesStr = entradaDeDadosPeloUsuario('Qual comorbidades? ');
             escreveNoTxt(`Paciente tem as seguintes comorbidades: ${comorbidadesStr}`);
             escreveNoTxtDaSecretaria(`Paciente tem as seguintes comorbidades: ${comorbidadesStr}`);
-            escreveNoTxtDaSecretaria(`CEP: ${cepStr}`);
+            escreveNoTxtDaSecretaria(`CEP do Paciente que testou positivo: ${cepStr}`);
         } else if (resposta === 'n') {
             escreveNoTxt(`Paciente não possui comorbidades!`);
         } else {
@@ -189,6 +189,54 @@ function iniciaCadastro() {
             verificaComorbidades(perguntaSeTemcomorbidadesStr);
         }
 
+    }
+
+    function verificaCpf(CPF) {
+    
+        let recebeCpf = CPF;
+    
+        //Procura por qualquer letra maiúscula e letra minúscula entre A e Z, se não encontrar retorna -1. Se não, retorna o índice que deu match
+        if((recebeCpf.search(/[A-Z]/g) == - 1) && (recebeCpf.search(/[a-z]/g) == -1)) {
+            console.log('CPF Valido!');
+            escreveNoTxt(`CPF: ${recebeCpf}`);
+        } else {
+            console.log('CPF Invalido! Por favor digite um CPF valido!');
+            cpfStr = entradaDeDadosPeloUsuario('CPF: ');
+            verificaCpf(cpfStr);
+        }
+    
+    }
+
+    function verificaCep(CEP) {
+    
+        let recebeCep = CEP;
+    
+        //Procura por qualquer letra maiúscula e letra minúscula entre A e Z, se não encontrar retorna -1. Se não, retorna o índice que deu match
+        if((recebeCep.search(/[A-Z]/g) == - 1) && (recebeCep.search(/[a-z]/g) == -1)) {
+            console.log('CEP Valido!');
+            escreveNoTxt(`CEP: ${recebeCep}`);
+        } else {
+            console.log('CEP Invalido! Por favor digite um CEP valido!');
+            cepStr = entradaDeDadosPeloUsuario(`CEP: `);
+            verificaCep(cepStr);
+        }
+    
+    }
+
+    function verificaCel(CEL) {
+    
+        let recebeCel = CEL;
+    
+        //Procura por qualquer letra maiúscula e letra minúscula entre A e Z, se não encontrar retorna -1. Se não, retorna o índice que deu match
+        if((recebeCel.search(/[A-Z]/g) == - 1) && (recebeCel.search(/[a-z]/g) == -1)) {
+            console.log('Telefone Valido!');
+            escreveNoTxt(`Telefone: ${recebeCel}`);
+        } else {
+            console.log('Telefone Invalido! Por favor digite um telefone valido!');
+            telStr = entradaDeDadosPeloUsuario('Telefone: ');
+            verificaCel(telStr);
+        }
+    
     }
 
 }
