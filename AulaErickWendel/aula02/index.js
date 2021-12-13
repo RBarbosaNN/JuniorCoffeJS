@@ -3,24 +3,34 @@
     2 - Obter o numero de telefone de um usuaio a partir de seu Id
     3 - Obter o endereco do usuario pelo Id
 */
+//Importamos um modulo interno do node.js
+const util = require('util');
+const obterEnderecoAsync = util.promisify(obterEndereco);
 
-function obterUsuario(callback) {
-    setTimeout(function () {
-        return callback(null, {
-            id: 1,
-            nome: 'Aladin',
-            dataNascimento: new Date()
-        })
-    }, 1000)
+function obterUsuario() {
+    //Quando der algum problema -> reject(ERRO)
+    //Quando sucess -> RESOLV
+    return new Promise(function resolvePromise(resolve, reject) {
+        setTimeout(function () {
+            return resolve({
+                id: 1,
+                nome: 'Aladin',
+                dataNascimento: new Date()
+            })
+        }, 1000)
+
+    })
 }
 
-function obterTelefone(idUsuario, callback) {
-    setTimeout(() => {
-        return callback(null, {
-            telefone: '1190002',
-            ddd: 11
-        })
-    }, 2000)
+function obterTelefone(idUsuario) {
+    return new Promise(function resolvePromise(resolve, reject) {
+        setTimeout(() => {
+            return resolve({
+                telefone: '1190002',
+                ddd: 11
+            })
+        }, 2000)
+    })
 }
 
 function obterEndereco(idUsuario, callback) {
@@ -32,31 +42,26 @@ function obterEndereco(idUsuario, callback) {
     })
 }
 
-function resolverUsuario(erro, usuario) {
-    console.log('usuaio', usuario);
+async function main() {
+    try {
+        console.time('medindo-tempo-promise')
+        const usuario = await obterUsuario()
+        const resultado = await Promise.all([
+            obterTelefone(usuario.id),
+            obterEnderecoAsync(usuario.id)
+        ])
+        const endereco = resultado[1]
+        const telefone = resultado[0]
+        console.log(`
+            Nome: ${usuario.nome},
+            Telefone: (${telefone.ddd}) ${telefone.telefone},
+            Endereco: ${endereco.rua}, ${endereco.numero}
+        `)
+        console.timeEnd('medindo-tempo-promise')
+    }
+    catch (error) {
+        console.error('DEU RUIM', error)
+    }
 }
 
-obterUsuario(function resolverUsuario(error, usuario) {
-    //null || "" || 0 === false
-    if(error) {
-        console.log('DEU RUIM EM usuario', error);
-        return;
-    }
-    obterTelefone(usuario.id, function resolverTelefone(error1, telefone){
-        if(error1) {
-            console.log('DEU RUIM EM telefone', error);
-            return;
-        }
-        obterEndereco(usuario.id, function resolverEndereco(error2, endereco){
-            if(error2) {
-                console.log('DEU RUIM EM endereco', error);
-                return;
-            }
-            console.log(`
-            Nome: ${usuario.nome},
-            Endereco: ${endereco.rua}, ${endereco.numero}
-            Telefone: (${telefone.ddd}) ${telefone.telefone}
-            `)
-        })
-    })
-})
+main()
