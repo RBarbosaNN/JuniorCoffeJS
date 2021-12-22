@@ -16,14 +16,6 @@ async function obterPessoas(nome) {
     return response.data;
 }
 
-// obterPessoas('r2').then(function(resultado){
-
-//     console.log('resultado', resultado)
-
-// }).catch(function (error){
-//     console.log('Deu ruim', error)
-// })
-
 module.exports = {
     obterPessoas: obterPessoas //forma para exportar um modulo
 }
