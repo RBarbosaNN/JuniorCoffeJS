@@ -11,8 +11,7 @@ const URL = 'https://swapi.dev/api/people';
 
 async function obterPessoas(nome) {
     const url = `${URL}/?search=${nome}&format=json`;
-    const response = await axios.get(url);//axios é uma promises, para que eu consiga
-                                        //pegar uma informação na mesma linha, eu preciso usar o await.
+    const response = await axios.get(url);//axios é uma promises, para que eu consiga pegar uma informação na mesma linha, eu preciso usar o await.
     return response.data;
 }
 
