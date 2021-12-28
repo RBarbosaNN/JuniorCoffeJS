@@ -9,6 +9,7 @@ let contador = 0;
 let todosResultados = [];
 let listaDeRepetidos = [];
 
+
 function randomico(nMinimo, nMaximo) {
     const rdm = Math.random() * (nMaximo - nMinimo) + nMinimo;
     return Math.floor(rdm);
@@ -18,7 +19,7 @@ function randomico(nMinimo, nMaximo) {
 function tornemeRico() {
     let jogo = [];
     let limiteDeDezena = 6;
-    let limiteDeJogo = 3;
+    let limiteDeJogo = 10;
 
     for (let n = 0; n < limiteDeDezena; n++) {
         jogo.push(randomico(nMinimo, nMaximo));
@@ -59,9 +60,14 @@ function registraListaDeRepetidos(nPc, cont) {
     let recebeNpC = nPc;
     let recebeCont = cont; 
     if (recebeCont > 1) {
-        console.log(`${recebeNpC} repetiu ${recebeCont} vezes`);
-        recebeNpC = 0;
-        recebeCont = 0;
+        for (c of todosResultados) {
+            if (recebeNpC != c) {
+                listaDeRepetidos.push(recebeNpC);
+                console.log(`${recebeNpC} repetiu ${recebeCont} vezes`);
+                recebeNpC = 0;
+                recebeCont = 0;
+            }
+        }
     } else {
         recebeNpC = 0;
         recebeCont = 0;
@@ -77,4 +83,5 @@ tornemeRico();
     mais se repetem. Ainda estou estudando isso! 23/12/2021
     Hoje 25/12/2021, o algoritmo evoluiu mais um pouco. Já esta fazendo a contagem de números repetidos, mas ainda precisa
     refinar mais. Esta apresentando as informações duplicadas no console.log()
+    Agora, 28/12 não esta mais contando os repetidos. Precisa corrigir
  */
