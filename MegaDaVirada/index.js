@@ -8,6 +8,8 @@ const nMaximo = 60;
 let contador = 0;
 let todosResultados = [];
 let listaDeRepetidos = [];
+let contaRepetido = 0;
+let nRepetido = 0;
 
 
 function randomico(nMinimo, nMaximo) {
@@ -33,46 +35,18 @@ function tornemeRico() {
         tornemeRico();
     } else {
         console.log('Fim dos jogos!');
+        console.log(`Todos resultados = ${todosResultados}`);
         contador = 0;
         classificaRepetido();
     }
 }
 
 
-function classificaRepetido() {
-    let contaRepetido = 0;
-    let nParaComparar = 0;
-    // console.log(`todosResultados = ${todosResultados}`);
-    for (i of todosResultados) {
-        nParaComparar = i;
-        for (c of todosResultados) {
-            if (nParaComparar == c) {
-                contaRepetido += 1;
-                registraListaDeRepetidos(nParaComparar, contaRepetido);
-            }
-        }
-        contaRepetido = 0;
-    }
-}
 
 
-function registraListaDeRepetidos(nPc, cont) {
-    let recebeNpC = nPc;
-    let recebeCont = cont; 
-    if (recebeCont > 1) {
-        for (c of todosResultados) {
-            if (recebeNpC != c) {
-                listaDeRepetidos.push(recebeNpC);
-                console.log(`${recebeNpC} repetiu ${recebeCont} vezes`);
-                recebeNpC = 0;
-                recebeCont = 0;
-            }
-        }
-    } else {
-        recebeNpC = 0;
-        recebeCont = 0;
-    }
-}
+
+
+
 
 
 tornemeRico();
@@ -84,4 +58,5 @@ tornemeRico();
     Hoje 25/12/2021, o algoritmo evoluiu mais um pouco. Já esta fazendo a contagem de números repetidos, mas ainda precisa
     refinar mais. Esta apresentando as informações duplicadas no console.log()
     Agora, 28/12 não esta mais contando os repetidos. Precisa corrigir
+    Agora, 01/01 retirei todas as funções que tentava identificar números repetidos! O algoritmo não esta mais rodando. Vamos corrigir!
  */
