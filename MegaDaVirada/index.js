@@ -13,8 +13,11 @@ let nRepetido = 0;
 
 
 function randomico(nMinimo, nMaximo) {
-    const rdm = Math.random() * (nMaximo - nMinimo) + nMinimo;// Garantir que a função random esteja funcionando corretamente 
-    return Math.floor(rdm);
+    // Garantir que a função random esteja funcionando corretamente
+    /*
+        Garantido! 01/01/2021
+     */
+    return Math.floor(Math.random() * (nMaximo - nMinimo + 1) + nMinimo);
 }
 
 
@@ -24,7 +27,11 @@ function tornemeRico() {
     let limiteDeJogo = 10;
 
     for (let n = 0; n < limiteDeDezena; n++) {
-        jogo.push(randomico(nMinimo, nMaximo));
+        if (jogo.indexOf(n) == -1) {
+            jogo.push(randomico(nMinimo, nMaximo)); //Só adiciona o número no jogo se ele não existir dentro do mesmo jogo
+        } else {
+            jogo.push(randomico(nMinimo, nMaximo)); //Se por acaso o número já existir dentro do jogo, chama a função randomico de novo.
+        }
     }
     contador += 1;
     if (contador <= limiteDeJogo) {
@@ -37,7 +44,7 @@ function tornemeRico() {
         console.log('Fim dos jogos!');
         console.log(`Todos resultados = ${todosResultados}`);
         contador = 0;
-        classificaRepetido();
+        // classificaRepetido();
     }
 }
 
