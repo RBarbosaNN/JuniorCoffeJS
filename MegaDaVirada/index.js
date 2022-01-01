@@ -13,7 +13,7 @@ let nRepetido = 0;
 
 
 function randomico(nMinimo, nMaximo) {
-    const rdm = Math.random() * (nMaximo - nMinimo) + nMinimo;
+    const rdm = Math.random() * (nMaximo - nMinimo) + nMinimo;// Garantir que a função random esteja funcionando corretamente 
     return Math.floor(rdm);
 }
 
