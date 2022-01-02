@@ -44,13 +44,29 @@ function tornemeRico() {
         console.log('Fim dos jogos!');
         console.log(`Todos resultados = ${todosResultados}`);
         contador = 0;
-        // classificaRepetido();
+        classificaRepetido();
     }
 }
 
 
 
-
+function classificaRepetido() {
+    for (let i = 0; i < todosResultados.length - 1; i++) {
+        for (let j = 0; j < todosResultados.length - i - 1; j++) {
+            // console.log(`1 - todosResultados[i] = ${todosResultados[i]}, todosResultadosp[j + 1] ${todosResultados[j+1]}`);
+            if (todosResultados[i] == todosResultados[j + 1]) {
+                contaRepetido ++;
+                if (contaRepetido > 1 && (listaDeRepetidos.indexOf(todosResultados[i]) == -1)) {
+                    listaDeRepetidos.push(todosResultados[i]);
+                }
+                // console.log(`2 - todosResultados[i] = ${todosResultados[i]}`);
+                // console.log(`listaDeRepetidos.indexOf(todosResultados[i]) == -1) = ${(listaDeRepetidos.indexOf(todosResultados[i]) == -1)}`);
+            }
+        }
+        contaRepetido = 0;
+    }
+    console.log(`O números repetidos foram: ${listaDeRepetidos}`);
+}
 
 
 
@@ -65,5 +81,7 @@ tornemeRico();
     Hoje 25/12/2021, o algoritmo evoluiu mais um pouco. Já esta fazendo a contagem de números repetidos, mas ainda precisa
     refinar mais. Esta apresentando as informações duplicadas no console.log()
     Agora, 28/12 não esta mais contando os repetidos. Precisa corrigir
-    Agora, 01/01 retirei todas as funções que tentava identificar números repetidos! O algoritmo não esta mais rodando. Vamos corrigir!
+    Agora, 01/01/2022 retirei todas as funções que tentava identificar números repetidos! O algoritmo não esta mais rodando. Vamos corrigir!
+    Agora, 02/01 já estou conseguindo criar uma lista só de números repetidos! Ainda preciso criar uma função para contar quantas vezes cada
+    número repetiu.
  */
