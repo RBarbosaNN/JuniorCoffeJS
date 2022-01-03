@@ -8,7 +8,6 @@ const nMaximo = 60;
 let contador = 0;
 let todosResultados = [];
 let listaDeRepetidos = [];
-let contaRepetido = 0;
 let nRepetido = 0;
 
 
@@ -51,22 +50,28 @@ function tornemeRico() {
 
 
 function classificaRepetido() {
-    for (let i = 0; i < todosResultados.length - 1; i++) {
-        for (let j = 0; j < todosResultados.length - i - 1; j++) {
-            // console.log(`1 - todosResultados[i] = ${todosResultados[i]}, todosResultadosp[j + 1] ${todosResultados[j+1]}`);
-            if (todosResultados[i] == todosResultados[j + 1]) {
-                contaRepetido ++;
-                if (contaRepetido > 1 && (listaDeRepetidos.indexOf(todosResultados[i]) == -1)) {
-                    listaDeRepetidos.push(todosResultados[i]);
-                }
-                // console.log(`2 - todosResultados[i] = ${todosResultados[i]}`);
-                // console.log(`listaDeRepetidos.indexOf(todosResultados[i]) == -1) = ${(listaDeRepetidos.indexOf(todosResultados[i]) == -1)}`);
+    let listaEmOrdemCrescente = [];
+    let contaRepetido = 0;
+    let nAtual = null;
+    listaEmOrdemCrescente = todosResultados.sort(function(primeiro, segundo) {
+        return primeiro - segundo;
+    });
+    console.log(`Os números sorteados em ordem crescente fica assim: ${listaEmOrdemCrescente}`);
+    for (let nR = 0; nR < listaEmOrdemCrescente.length; nR++) {
+        if (listaEmOrdemCrescente[nR] != nAtual) {
+            if (contaRepetido > 1) {
+                console.log(`O número ${nAtual} repetiu ${contaRepetido} vezes!`);
             }
+            nAtual = listaEmOrdemCrescente[nR];
+            contaRepetido = 1;
+        } else {
+            contaRepetido++;
         }
-        contaRepetido = 0;
     }
-    console.log(`O números repetidos foram: ${listaDeRepetidos}`);
 }
+
+
+
 
 
 
@@ -84,4 +89,5 @@ tornemeRico();
     Agora, 01/01/2022 retirei todas as funções que tentava identificar números repetidos! O algoritmo não esta mais rodando. Vamos corrigir!
     Agora, 02/01 já estou conseguindo criar uma lista só de números repetidos! Ainda preciso criar uma função para contar quantas vezes cada
     número repetiu.
+    Agora, 03/01 já esta tudo funcionando. Projeto concluido!;
  */
