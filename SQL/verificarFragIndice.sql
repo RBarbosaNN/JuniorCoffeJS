@@ -20,3 +20,24 @@ sp_configure 'max server memory', 4096;
 GO
 RECONFIGURE;
 GO
+
+
+-- Essa query promete diminuir a fragmentação de todas as tabelas da DB. Precisa testar com atenção
+
+set nocount on
+DECLARE tabelas CURSOR fast_forward
+FOR select name from sysobjects where type = 'u'
+DECLARE @nome varchar(80)
+OPEN tabelas
+FETCH NEXT FROM tabelas INTO @nome
+WHILE (@@fetch_status <> -1)
+BEGIN
+IF (@@fetch_status <> -2)
+BEGIN
+select '[][] Reindexando a tabela: '+@nome
+exec( 'dbcc dbreindex ( ''' + @nome + ''')')
+END
+FETCH NEXT FROM tabelas INTO @nome
+END
+CLOSE tabelas
+DEALLOCATE tabelas
