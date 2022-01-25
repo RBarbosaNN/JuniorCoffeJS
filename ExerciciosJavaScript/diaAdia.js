@@ -1,11 +1,13 @@
 
 /*  
-    04/01/2021 - Função que mostra a tabuada do número passado como parâmetro da função.
+    04/01/2022 - Função que mostra a tabuada do número passado como parâmetro da função.
     Ainda precisa melhorar. Vamos fazer com oque o usuário informe o número interagindo diretamente pelo terminal.
     Também precisamos construiu um algoritmo para tratar as falhas que podem ser causadas pelo usuário.
     
-    05/01/2021 - Criar uma função que adiciona números aleatório em uma lista. Depois, pega esse números e cria uma nova lista
+    05/01/2022 - Criar uma função que adiciona números aleatório em uma lista. Depois, pega esse números e cria uma nova lista
     apenas com números impares. Por último, organiza essa lista em ordem crescente.
+
+    25/01/2022 - Criar uma função que remove os três primeiros caracteres de uma string e printa o resto.
  */
 
 
@@ -52,4 +54,15 @@ function geraListas() {
     console.log(`Lista Par em ordem crescente: ${listaDeNumeroPar.sort((a,b) => a - b)}`);
 }
 
-geraListaGeral();
+// geraListaGeral();
+
+
+//remove os três primeiros caracteres
+
+let s = "abcdef";
+
+function myFunction(s) {
+    return s.slice(3);
+}
+
+console.log(myFunction(s));
