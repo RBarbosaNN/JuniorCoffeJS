@@ -8,6 +8,8 @@
     apenas com números impares. Por último, organiza essa lista em ordem crescente.
 
     25/01/2022 - Criar uma função que remove os três primeiros caracteres de uma string e printa o resto.
+
+    25/01/2022 - Criar uma função e colocar um objeto dentro da função que vai calcular a area do retangulo.
  */
 
 
@@ -65,4 +67,20 @@ function myFunction(s) {
     return s.slice(3);
 }
 
-console.log(myFunction(s));
+// console.log(myFunction(s));
+
+function Retangulo(c, l) {
+    const retangulo = {
+        Comprimento: c,
+        Largura: l,
+        Perimetro: 2 * (c + l),
+        Area: c * l
+    }
+
+    return retangulo;
+}
+
+let c = 710;
+let l = 110;
+
+console.log(Retangulo(c, l));
