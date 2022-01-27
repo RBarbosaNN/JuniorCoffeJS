@@ -10,6 +10,8 @@
     25/01/2022 - Criar uma função que remove os três primeiros caracteres de uma string e printa o resto.
 
     25/01/2022 - Criar uma função e colocar um objeto dentro da função que vai calcular a area do retangulo.
+
+    26/01/2022 - Criar uma função e colocar um objeto dentro que vai calcular Bhaskara. Feito, precisa verificar se esta certo.
  */
 
 
@@ -83,4 +85,24 @@ function Retangulo(c, l) {
 let c = 710;
 let l = 110;
 
-console.log(Retangulo(c, l));
+// console.log(Retangulo(c, l));
+
+
+function Bhaskara(a, b, c) {
+    let x1 = 0;
+    let x2 = 0;
+    const formula = {
+        a: a,
+        b: b,
+        c: c,
+        x1: -b + (Math.sqrt((b**2)) - ((4*a*c))/2*a),
+        x2: -b - (Math.sqrt((b**2)) - ((4*a*c))/2*a),
+        f1: a*(x1**2) + (a*x1) + c,
+        f2: a*(x2**2) + (a*x2) + c
+    }
+
+    return formula;
+
+}
+
+console.log(Bhaskara(3,4,5));
