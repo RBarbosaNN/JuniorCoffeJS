@@ -12,6 +12,8 @@
     25/01/2022 - Criar uma função e colocar um objeto dentro da função que vai calcular a area do retangulo.
 
     26/01/2022 - Criar uma função e colocar um objeto dentro que vai calcular Bhaskara. Feito, precisa verificar se esta certo.
+
+    30/01/2022 - Criamos a função BhaskaraV2, foi corrigido a função do dia 26/01 e aplicamos algumas melhorias.
  */
 
 
@@ -88,21 +90,49 @@ let l = 110;
 // console.log(Retangulo(c, l));
 
 
-function Bhaskara(a, b, c) {
-    let x1 = 0;
-    let x2 = 0;
-    const formula = {
-        a: a,
-        b: b,
-        c: c,
-        x1: -b + (Math.sqrt((b**2)) - ((4*a*c))/2*a),
-        x2: -b - (Math.sqrt((b**2)) - ((4*a*c))/2*a),
-        f1: a*(x1**2) + (a*x1) + c,
-        f2: a*(x2**2) + (a*x2) + c
-    }
+// function Bhaskara(a, b, c) {
+//     const formula = {
+//         a: a,
+//         b: b,
+//         c: c,
+//         Delta: (b**2) - (4*a*c),
+//         raizDelta: Math.sqrt((b**2) - (4*a*c)),
+//         x1: (-b + (Math.sqrt((b**2) - (4*a*c))))/(2*a),
+//         x2: (-b - (Math.sqrt((b**2) - (4*a*c))))/(2*a),
+//         ProvaRaizX1: a*(Math.pow(((-b + (Math.sqrt((b**2) - (4*a*c))))/(2*a)),2)) + (b*((-b + (Math.sqrt((b**2) - (4*a*c))))/(2*a))) + c,
+//         ProvaRaizX2: a*(Math.pow(((-b - (Math.sqrt((b**2) - (4*a*c))))/(2*a)),2)) + (b*((-b - (Math.sqrt((b**2) - (4*a*c))))/(2*a))) + c
+//     }
 
-    return formula;
+//     return formula;
 
+// }
+
+// console.log(Bhaskara(2,7,5));
+
+function BhaskaraV2(a,b,c) {
+    let aa = a;
+    let bb = b;
+    let cc = c;
+    let delta = (bb**2) - (4*aa*cc);
+    let raizDelta = Math.sqrt(delta);
+    let x1 = (-bb + raizDelta)/(2*aa);
+    let x2 = (-bb - raizDelta)/(2*aa);
+    let ProvaRaizX1 = aa*(x1**2) + (bb*x1) + c;
+    let ProvaRaizX2 = aa*(x2**2) + (bb*x2) + c;
+
+    console.log(`ax² + bx + c = 0`);
+    console.log(`${aa}x² + ${bb}x + ${cc} = 0`);
+    console.log(`a: ${aa}`);
+    console.log(`b: ${bb}`);
+    console.log(`c: ${cc}`);
+    console.log(`Delta: ${delta}`);
+    console.log(`Raiz de Delta: ${raizDelta}`);
+    console.log(`x1: ${x1}`);
+    console.log(`x2: ${x2}`);
+    console.log(`Prova Raiz de x1: ${ProvaRaizX1}`);
+    console.log(`Prova Raiz de x2: ${ProvaRaizX2}`);
+    console.log(`${aa}.${x1}² + ${bb}.${x1} + ${cc} = ${ProvaRaizX1}`);
+    console.log(`${aa}.${x2}² + ${bb}.${x2} + ${cc} = ${ProvaRaizX2}`);
 }
 
-console.log(Bhaskara(3,4,5));
+BhaskaraV2(2,7,5);
