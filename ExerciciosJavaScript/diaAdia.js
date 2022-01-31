@@ -14,6 +14,9 @@
     26/01/2022 - Criar uma função e colocar um objeto dentro que vai calcular Bhaskara. Feito, precisa verificar se esta certo.
 
     30/01/2022 - Criamos a função BhaskaraV2, foi corrigido a função do dia 26/01 e aplicamos algumas melhorias.
+
+    30/01/2022 = Algoritmo de pesquisa por dicotomia. A ideia é dividir a lista por 2, e procurar pelo número em apenas uma metado da lista. (Funcionando,
+        mas ainda preciso entender melhor o algoritimo).
  */
 
 
@@ -135,4 +138,38 @@ function BhaskaraV2(a,b,c) {
     console.log(`${aa}.${x2}² + ${bb}.${x2} + ${cc} = ${ProvaRaizX2}`);
 }
 
-BhaskaraV2(2,7,5);
+// BhaskaraV2(2,7,5);
+
+let listaParaPesquisa = [30, 40, 50, 70, 85, 90, 100];
+let alvo = 90;
+
+function pPorDicotomia(lista, alvo) {
+    
+    let indiceMinimo = 0;
+    let indiceMaximo = lista.length-1;
+    let indiceMedio = 0;
+    let valorAlvoEncontradoNoIndice = 0;
+    let valorAlvoNaoEcontrado = 0;
+
+    while (indiceMinimo <= indiceMaximo) {
+        indiceMedio = (indiceMinimo+indiceMaximo)/2;
+        if(lista[indiceMedio] == alvo) {
+            valorAlvoEncontradoNoIndice = indiceMedio;
+            break;
+        } else if (lista[indiceMedio] < alvo) {
+            indiceMinimo = indiceMedio+1;
+        } else if (lista[indiceMedio] > alvo) {
+            indiceMaximo = indiceMedio-1;
+            valorAlvoNaoEcontrado = -1;
+        }
+    }
+    
+    if (valorAlvoNaoEcontrado !== -1) {
+        console.log(`Valor alvo: ${alvo}. Foi encontrado ${lista[indiceMedio]} no indice: ${valorAlvoEncontradoNoIndice}`);
+    } else {
+        console.log(`Valor alvo: ${alvo}. Não foi encontrado em nenhum indice`);
+    }
+
+}
+
+pPorDicotomia(listaParaPesquisa, alvo);
