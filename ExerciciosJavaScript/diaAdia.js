@@ -15,8 +15,8 @@
 
     30/01/2022 - Criamos a função BhaskaraV2, foi corrigido a função do dia 26/01 e aplicamos algumas melhorias.
 
-    30/01/2022 = Algoritmo de pesquisa por dicotomia. A ideia é dividir a lista por 2, e procurar pelo número em apenas uma metado da lista. (Funcionando,
-        mas ainda preciso entender melhor o algoritimo).
+    30/01/2022 = Algoritmo de pesquisa por dicotomia. A ideia é dividir a lista por 2, e procurar pelo número em apenas uma metado da lista. Observação,
+    esta funcionando, mas ainda preciso entender melhor o algoritimo.
  */
 
 
