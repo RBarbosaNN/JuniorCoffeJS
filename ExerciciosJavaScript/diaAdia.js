@@ -20,6 +20,9 @@
 
     07/02/2022 - Testes de stdin e stdout. Falhou, o comando exit não funcionou e a aplicação continuou rodando.
     Já deletei as linhas de código.
+
+    10/2/2022 - Algoritmo de classificação de cascas (Shell Sort) - Organiza um array em ordem crescente de uma forma muito
+    eficiente.
  */
 
 
@@ -61,9 +64,9 @@ function geraListas() {
         }
     }
     console.log(`Lista de número Impar: ${listaDeNumeroImpar}. O sistema gerou ${contaImpar} números Impares`);
-    console.log(`Lista Impar em ordem crescente: ${listaDeNumeroImpar.sort((a,b) => a - b)}`);
+    console.log(`Lista Impar em ordem crescente: ${listaDeNumeroImpar.sort((a, b) => a - b)}`);
     console.log(`Lista de número Par: ${listaDeNumeroPar}. O sistema gerou ${contaPar} números Pares`);
-    console.log(`Lista Par em ordem crescente: ${listaDeNumeroPar.sort((a,b) => a - b)}`);
+    console.log(`Lista Par em ordem crescente: ${listaDeNumeroPar.sort((a, b) => a - b)}`);
 }
 
 // geraListaGeral();
@@ -96,35 +99,18 @@ let l = 110;
 // console.log(Retangulo(c, l));
 
 
-// function Bhaskara(a, b, c) {
-//     const formula = {
-//         a: a,
-//         b: b,
-//         c: c,
-//         Delta: (b**2) - (4*a*c),
-//         raizDelta: Math.sqrt((b**2) - (4*a*c)),
-//         x1: (-b + (Math.sqrt((b**2) - (4*a*c))))/(2*a),
-//         x2: (-b - (Math.sqrt((b**2) - (4*a*c))))/(2*a),
-//         ProvaRaizX1: a*(Math.pow(((-b + (Math.sqrt((b**2) - (4*a*c))))/(2*a)),2)) + (b*((-b + (Math.sqrt((b**2) - (4*a*c))))/(2*a))) + c,
-//         ProvaRaizX2: a*(Math.pow(((-b - (Math.sqrt((b**2) - (4*a*c))))/(2*a)),2)) + (b*((-b - (Math.sqrt((b**2) - (4*a*c))))/(2*a))) + c
-//     }
-
-//     return formula;
-
-// }
-
 // console.log(Bhaskara(2,7,5));
 
-function BhaskaraV2(a,b,c) {
+function BhaskaraV2(a, b, c) {
     let aa = a;
     let bb = b;
     let cc = c;
-    let delta = (bb**2) - (4*aa*cc);
+    let delta = (bb ** 2) - (4 * aa * cc);
     let raizDelta = Math.sqrt(delta);
-    let x1 = (-bb + raizDelta)/(2*aa);
-    let x2 = (-bb - raizDelta)/(2*aa);
-    let ProvaRaizX1 = aa*(x1**2) + (bb*x1) + c;
-    let ProvaRaizX2 = aa*(x2**2) + (bb*x2) + c;
+    let x1 = (-bb + raizDelta) / (2 * aa);
+    let x2 = (-bb - raizDelta) / (2 * aa);
+    let ProvaRaizX1 = aa * (x1 ** 2) + (bb * x1) + c;
+    let ProvaRaizX2 = aa * (x2 ** 2) + (bb * x2) + c;
 
     console.log(`ax² + bx + c = 0`);
     console.log(`${aa}x² + ${bb}x + ${cc} = 0`);
@@ -147,26 +133,26 @@ let listaParaPesquisa = [30, 40, 50, 70, 85, 90, 100];
 let alvo = 90;
 
 function pPorDicotomia(lista, alvo) {
-    
+
     let indiceMinimo = 0;
-    let indiceMaximo = lista.length-1;
+    let indiceMaximo = lista.length - 1;
     let indiceMedio = 0;
     let valorAlvoEncontradoNoIndice = 0;
     let valorAlvoNaoEcontrado = 0;
 
     while (indiceMinimo <= indiceMaximo) {
-        indiceMedio = (indiceMinimo+indiceMaximo)/2;
-        if(lista[indiceMedio] == alvo) {
+        indiceMedio = (indiceMinimo + indiceMaximo) / 2;
+        if (lista[indiceMedio] == alvo) {
             valorAlvoEncontradoNoIndice = indiceMedio;
             break;
         } else if (lista[indiceMedio] < alvo) {
-            indiceMinimo = indiceMedio+1;
+            indiceMinimo = indiceMedio + 1;
         } else if (lista[indiceMedio] > alvo) {
-            indiceMaximo = indiceMedio-1;
+            indiceMaximo = indiceMedio - 1;
             valorAlvoNaoEcontrado = -1;
         }
     }
-    
+
     if (valorAlvoNaoEcontrado !== -1) {
         console.log(`Valor alvo: ${alvo}. Foi encontrado ${lista[indiceMedio]} no indice: ${valorAlvoEncontradoNoIndice}`);
     } else {
@@ -176,3 +162,38 @@ function pPorDicotomia(lista, alvo) {
 }
 
 // pPorDicotomia(listaParaPesquisa, alvo);
+
+//ShellSort
+let scoresDesordenado = [9, 6, 5, 8, 0, 7, 4, 3, 1, 2];
+let scoresOrdenado = [];
+
+function shellSort(array) {
+    console.log(`Array original: ${array}`);
+    console.time("Medindo tempo de execução da função ShellSort");
+    let middle = parseInt(array.length / 2);
+    for (let gap = middle; gap > 0; gap = parseInt(gap / 2)) {
+        for (let i = gap; i < array.length; i++) {
+            let j = i;
+            while (j - gap >= 0 && array[j] < array[j - gap]) {
+                swap(array, j, j - gap);
+                j = j - gap;
+            }
+        }
+    }
+    for (let i = 0; i < array.length; i++) {
+        scoresOrdenado.push(array[i]);
+    }
+    console.log(`Array ordenado: ${scoresOrdenado}`);
+    console.timeEnd("Medindo tempo de execução da função ShellSort");
+}
+
+function swap(array, a, b) {
+    array[a] = array[a] + array[b];
+    array[b] = array[a] - array[b];
+    array[a] = array[a] - array[b];
+}
+
+
+shellSort(scoresDesordenado);
+
+//ShellSort
