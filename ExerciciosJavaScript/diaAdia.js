@@ -21,8 +21,10 @@
     07/02/2022 - Testes de stdin e stdout. Falhou, o comando exit não funcionou e a aplicação continuou rodando.
     Já deletei as linhas de código.
 
-    10/2/2022 - Algoritmo de classificação de cascas (Shell Sort) - Organiza um array em ordem crescente de uma forma muito
+    10/02/2022 - Algoritmo de classificação de cascas (Shell Sort) - Organiza um array em ordem crescente de uma forma muito
     eficiente.
+
+    11/02/2022 - Inicio do exercicio da Microsoft
  */
 
 
