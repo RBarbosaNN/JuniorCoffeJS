@@ -25,6 +25,8 @@
     eficiente.
 
     11/02/2022 - Inicio do exercicio da Microsoft
+
+    16/02/2022 - Algoritmo para determinar o número da sequencia de Fibonacci.
  */
 
 
@@ -196,6 +198,25 @@ function swap(array, a, b) {
 }
 
 
-shellSort(scoresDesordenado);
+// shellSort(scoresDesordenado);
 
 //ShellSort
+
+//Fibonacci
+function fibonacci(n) {
+    let n1 = 0;
+    let n2 = 1;
+    let sum = 0;
+
+    for (let i = 2; i <= n; i++) {
+        sum = n1 + n2;
+        n1 = n2;
+        n2 = sum;
+    }
+
+    return n === 0 ? n1 : n2;
+}
+
+const result = fibonacci(8);
+console.log(result);
+//Fibonacci
