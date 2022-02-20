@@ -27,6 +27,10 @@
     11/02/2022 - Inicio do exercicio da Microsoft
 
     16/02/2022 - Algoritmo para determinar o número da sequencia de Fibonacci.
+
+    19/02/2022 - Tratamento de erro.
+
+    Descobrir como tratar erros de referencia passado como parâmetro da função
  */
 
 
@@ -217,6 +221,20 @@ function fibonacci(n) {
     return n === 0 ? n1 : n2;
 }
 
-const result = fibonacci(8);
-console.log(result);
+// const result = fibonacci(8);
+// console.log(result);
 //Fibonacci
+
+//Tabuada
+
+function trataMentoDeErro() {
+    try {
+        let ntb = variavelNaoDeclarada;
+    } catch(e) {
+        console.log(e.name);
+        console.log(e.message);
+    }
+}
+
+trataMentoDeErro();
+
