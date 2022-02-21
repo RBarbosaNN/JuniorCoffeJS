@@ -26,7 +26,7 @@ function verificaCpf(CPF) {
 }
 
 
-verificaCpf(testeCpf);
+// verificaCpf(testeCpf);
 
 // for (let digito of recebeCpf) {
 //     console.log(digito);

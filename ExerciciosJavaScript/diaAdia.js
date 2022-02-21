@@ -31,6 +31,8 @@
     19/02/2022 - Tratamento de erro.
 
     Descobrir como tratar erros de referencia passado como parâmetro da função
+
+    20/02/2022 - Construir uma função para testar se a conversão de string para number deu certo
  */
 
 
@@ -227,7 +229,7 @@ function fibonacci(n) {
 
 //Tabuada
 
-function trataMentoDeErro() {
+function tratamentoDeErro() {
     try {
         let ntb = variavelNaoDeclarada;
     } catch(e) {
@@ -236,5 +238,22 @@ function trataMentoDeErro() {
     }
 }
 
-trataMentoDeErro();
+
+tratamentoDeErro();
+
+
+
+let entradaParaTestar = 555;
+
+function testeConversao(parametro) {
+    let tentaConverter = parseInt(parametro);
+    if(isNaN(tentaConverter)) {
+        console.log(`Entramos aqui porque não foi possivel converter "${entradaParaTestar}" para número, pois ao tentar converter 
+        ele virou um ${tentaConverter}`);
+    } else {
+        console.log(`Ok, foi possivel converter. O typeof de ${tentaConverter} é realmente um ${typeof(tentaConverter)}`);
+    }
+}
+
+testeConversao(entradaParaTestar);
 
