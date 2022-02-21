@@ -248,10 +248,10 @@ let entradaParaTestar = 555;
 function testeConversao(parametro) {
     let tentaConverter = parseInt(parametro);
     if(isNaN(tentaConverter)) {
-        console.log(`Entramos aqui porque não foi possivel converter "${entradaParaTestar}" para número, pois ao tentar converter 
+        console.log(`Entramos aqui porque não foi possível converter "${entradaParaTestar}" para número, pois ao tentar converter 
         ele virou um ${tentaConverter}`);
     } else {
-        console.log(`Ok, foi possivel converter. O typeof de ${tentaConverter} é realmente um ${typeof(tentaConverter)}`);
+        console.log(`Ok, foi possível converter. O typeof de ${tentaConverter} é realmente um ${typeof(tentaConverter)}`);
     }
 }
 
