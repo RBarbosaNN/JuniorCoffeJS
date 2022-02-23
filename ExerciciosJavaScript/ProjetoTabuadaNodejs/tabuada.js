@@ -1,5 +1,5 @@
 /*
-    Função que constroi uma tabuada interagindo com o usario via prompt
+    Função que constrói uma tabuada interagindo com o usario via prompt
 */
 
 
