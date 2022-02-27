@@ -20,3 +20,18 @@ SET dbo.Identificadores.pesAtivo = 0
 FROM dbo.Identificadores
 INNER JOIN dbo.LogAcesso ON dbo.Identificadores.PIN = dbo.LogAcesso.PIN
 WHERE (dbo.Identificadores.PIN IS NOT NULL and pesAtivo IS NOT NULL)  and lacData <= ‘20180101’
+
+
+--O exemplo abaixo foi copiado do GitHub
+
+UPDATE
+    Tabela
+SET
+    Tabela.Col01 = Outra_tabela.Col01,
+    Tabela.Col02 = Outra_tabela.Col02
+FROM
+    Tabela as Tabela
+  INNER JOIN Outra_tabela AS Outra_tabela
+    ON Tabela.id = Outra_tabela.id
+WHERE
+    Condicao = 'Qualquer coisa'
