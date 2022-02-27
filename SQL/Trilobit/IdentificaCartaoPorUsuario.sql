@@ -14,6 +14,9 @@ WHERE (dbo.Identificadores.PIN IS NOT NULL and pesAtivo IS NOT NULL)  and lacDat
 
 
 --Construir uma query que desabila o cartão caso ele não tenha dado entra no prédio a partir de uma data
+--Ainda precisa testar em uma VM
 UPDATE dbo.Identificadores
-SET pesAtivo = 0
-WHERE ()
+SET dbo.Identificadores.pesAtivo = 0
+FROM dbo.Identificadores
+INNER JOIN dbo.LogAcesso ON dbo.Identificadores.PIN = dbo.LogAcesso.PIN
+WHERE (dbo.Identificadores.PIN IS NOT NULL and pesAtivo IS NOT NULL)  and lacData <= ‘20180101’
