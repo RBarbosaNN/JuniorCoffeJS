@@ -33,8 +33,12 @@ function subtracao(operacao, num1, num2) {
 }
 
 function calculadora() {
-    const operacao = perguntaParaUsuario('Qual operação você quer fazer? Responda com (/,*,+,-) ');
+    console.log();
+    console.log();
+    console.log();
+    console.log('*********** Bem vindo a calculadora. ***********');
     const n1 = perguntaParaUsuario('Entre com o primeiro número: ');
+    const operacao = perguntaParaUsuario('Qual operação você quer fazer? Responda com (/,*,+,-) ');
     const nn1 = parseInt(n1);
     const n2 = perguntaParaUsuario('Entre com o segundo número: ');
     const nn2 = parseInt(n2);
