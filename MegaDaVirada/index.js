@@ -23,7 +23,7 @@ function randomico(nMinimo, nMaximo) {
 function tornemeRico() {
     let jogo = [];
     let limiteDeDezena = 6;
-    let limiteDeJogo = 10;
+    let limiteDeJogo = 2;
 
     for (let n = 0; n < limiteDeDezena; n++) {
         if (jogo.indexOf(n) == -1) {
