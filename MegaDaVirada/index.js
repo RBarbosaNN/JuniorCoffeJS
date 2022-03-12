@@ -9,6 +9,8 @@ let contador = 0;
 let todosResultados = [];
 let listaDeRepetidos = [];
 let nRepetido = 0;
+let limiteDeJogo = 4;
+let limiteDeDezena = 6;
 
 
 function randomico(nMinimo, nMaximo) {
@@ -22,8 +24,6 @@ function randomico(nMinimo, nMaximo) {
 
 function tornemeRico() {
     let jogo = [];
-    let limiteDeDezena = 6;
-    let limiteDeJogo = 2;
 
     for (let n = 0; n < limiteDeDezena; n++) {
         if (jogo.indexOf(n) == -1) {
@@ -85,7 +85,7 @@ tornemeRico();
     mais se repetem. Ainda estou estudando isso! 23/12/2021
     Hoje 25/12/2021, o algoritmo evoluiu mais um pouco. Já esta fazendo a contagem de números repetidos, mas ainda precisa
     refinar mais. Esta apresentando as informações duplicadas no console.log()
-    Agora, 28/12 não esta mais contando os repetidos. Precisa corrigir
+    Agora, 28/12/21 não esta mais contando os repetidos. Precisa corrigir
     Agora, 01/01/2022 retirei todas as funções que tentava identificar números repetidos! O algoritmo não esta mais rodando. Vamos corrigir!
     Agora, 02/01 já estou conseguindo criar uma lista só de números repetidos! Ainda preciso criar uma função para contar quantas vezes cada
     número repetiu.
