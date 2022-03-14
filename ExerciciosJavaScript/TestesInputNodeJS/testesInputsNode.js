@@ -11,7 +11,7 @@ const entradaDoUsuario = require('prompt-sync')({sigint:true});
 
 function trataEntradaDoUsuario() {
     console.log('Vamos solicitar que você digite uma frase com letras e números.');
-    console.log('Vamos tentar separar  as letras dos números');
+    console.log('Vamos tentar separar as letras dos números');
     let userString = entradaDoUsuario('Digite a string com letras e números: ');
     let nTemp = '';
     let sTemp = '';

@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "filesystem": "^1.0.1"
+    "filesystem": ">1.0.1"
   }
 }
