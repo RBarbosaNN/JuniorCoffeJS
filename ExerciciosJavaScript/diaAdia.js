@@ -33,6 +33,8 @@
     Descobrir como tratar erros de referencia passado como parâmetro da função
 
     20/02/2022 - Construir uma função para testar se a conversão de string para number deu certo
+
+    20/03/2022 - Construir uma função que separa o nome do usuario do dominio de e-mail
  */
 
 
@@ -239,7 +241,7 @@ function tratamentoDeErro() {
 }
 
 
-tratamentoDeErro();
+// tratamentoDeErro();
 
 
 
@@ -255,5 +257,18 @@ function testeConversao(parametro) {
     }
 }
 
-testeConversao(entradaParaTestar);
+// testeConversao(entradaParaTestar);
+
+function separaDominioEmail() {
+    let emailCadastrado = 'exemplo@gmail.com';
+    let separaEmail = emailCadastrado.split("@");
+    let emailNomeDeUsuario = separaEmail[0];
+    let dominioDoEmail = separaEmail[1];
+
+    console.log(`Email cadastrado: ${emailCadastrado}`);
+    console.log(`Nome do usuario: ${emailNomeDeUsuario}`);
+    console.log(`Nome de dominio: ${dominioDoEmail}`);
+}
+
+separaDominioEmail();
 
