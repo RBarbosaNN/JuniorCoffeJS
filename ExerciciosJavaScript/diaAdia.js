@@ -270,5 +270,5 @@ function separaDominioEmail() {
     console.log(`Nome de dominio: ${dominioDoEmail}`);
 }
 
-separaDominioEmail();
+// separaDominioEmail();
 
