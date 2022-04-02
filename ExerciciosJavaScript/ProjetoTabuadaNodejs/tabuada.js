@@ -18,6 +18,7 @@ function tabuadaComNodeJs() {
         console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++');
         console.log();
     } else {
+        pulaLinha();
         console.log(`Ok, a tabuada do ${entradaConvertidaParaNumero} é:`);
         console.log();
         for(let i = 0; i <= 10; i++) {
@@ -25,6 +26,7 @@ function tabuadaComNodeJs() {
         }
         console.log();
         console.log('Fim da apresentação da tabuada. Até a proxima!');
+        console.log();
     }
 }
 
