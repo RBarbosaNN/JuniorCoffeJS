@@ -5,7 +5,7 @@
     "http": "^0.0.1-security"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node ./bin/server.js"
   },
   "name": "str",
   "version": "1.0.0",
