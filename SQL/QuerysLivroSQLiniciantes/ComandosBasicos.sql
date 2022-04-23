@@ -56,7 +56,8 @@ ADD DiseaseDescription text NULL
 
 --*******************
 
---Funções de Agregação Count()
+--Funções de Agregação Count() - Conta a quantidade de paciente com 
+--problema cardíaco
 
 USE Hospital
 GO
@@ -67,4 +68,58 @@ WHERE DiseaseDescription LIKE ('%cardíaca%')
 
 --*******************
 
---Funções de Agregação 
+--Funções de Agregação Avg() - Verifica a média de idade de todos os 
+--pacientes com problema no coração
+
+
+use Hospital
+go
+
+select AVG(PatientAge) AverageAgeofHeartDisease
+from Patient
+where DiseaseDescription like ('%cardíaca%')
+
+--*******************
+
+--Max() - Retorna o máximo de todos os valores em uma coluna
+
+use Hospital
+go
+
+select MAX(PatientAge) as MaximumAge
+from Patient
+
+--*******************
+
+--Min() - Retorna o valor mínimo da coluna
+
+use Hospital
+go
+
+select Min(PatientAge) as MaximumAge
+from Patient
+
+--*******************
+
+--Upper() ou Ucase(). Converte todos os valores para caixa alta/baixa
+--durante a consulta select
+
+use Hospital
+go
+
+select UPPER(PatientName) as PatientNameUpper
+from Patient
+
+--*******************
+
+--update - Substituir a string: 'Doença cardíaca'na coluna DiseaseDescription
+--pela string 'Doença do coração'
+
+use Hospital
+GO
+
+update Patient
+set DiseaseDescription = 'Doença do coração'
+where DiseaseDescription like ('%cardíaca%')
+
+--*******************
