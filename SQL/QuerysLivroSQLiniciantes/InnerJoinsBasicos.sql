@@ -54,3 +54,54 @@ insert into Student VALUES
 --*********************************
 
 --Iniciando com Inner Join
+
+-- O INNER JOIN recupera dados a partir de uma coluna selecionada de 
+-- ambas as tabelas se, e apenas se, houver um valor comum em ambas
+-- as tabelas na coluna especificada pela condição JOIN.
+
+use School
+GO
+
+select Student.StudName, Department.DepName
+from Student
+join Department
+on Student.DepID = Department.DepID
+
+--*********************************
+
+--LEFT JOIN
+
+-- O LEFT JOIN recupera todos os registros da primeira tabela
+-- e apenas registros da segunda tabela onde existe um valor em comum
+-- em ambas as tabelas.
+
+use School
+GO
+
+select Student.StudName, Department.DepName
+from Student
+left join Department
+on Student.DepID = Department.DepID
+
+--*********************************
+
+--FULL JOIN
+
+-- O FULL JOIN é a união do RIGHT JOIN e LEFT JOIN.
+-- O FULL JOIN recupera todos os registros de ambas as tabelas,
+-- se for ou não encontrada uma associação entre a chave 
+-- estrangeira e a chave primária da tabela vinculada.
+
+use School
+GO
+
+select Student.StudName, Department.DepName
+from Student
+full join Department
+on Student.DepID = Department.DepID
+
+--*********************************
+
+--Subconsultas SQL -- Antes temos que voltar duas paginas e fazer o
+-- Exercicio 8
+
