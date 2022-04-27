@@ -115,8 +115,5 @@ on Student.DepID = Department.DepID
 group by DepName
 having Max(Student.StudentAge) between 21 and 24
 
-
 --*********************************
-
--- Subconsultas SQL
 
