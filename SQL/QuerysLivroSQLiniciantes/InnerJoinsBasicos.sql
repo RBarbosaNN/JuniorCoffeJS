@@ -102,6 +102,21 @@ on Student.DepID = Department.DepID
 
 --*********************************
 
---Subconsultas SQL -- Antes temos que voltar duas paginas e fazer o
--- Exercicio 8
+-- Para cada departamento, exiba o nome do departamento e a idade
+-- máxima dos estudantes naquele departamento, se a idade estiver entre 21 e 24 anos.
+
+use School
+GO
+
+select Department.DepName, Max(Student.StudentAge) as Age
+from Student
+right join Department 
+on Student.DepID = Department.DepID
+group by DepName
+having Max(Student.StudentAge) between 21 and 24
+
+
+--*********************************
+
+-- Subconsultas SQL
 
