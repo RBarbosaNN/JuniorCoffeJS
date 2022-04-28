@@ -272,3 +272,40 @@ function separaDominioEmail() {
 
 // separaDominioEmail();
 
+
+
+// Arrow Functions
+
+let cores = [
+    { id: 1, nome: "Amarelo" },
+    { id: 2, nome: "Verde" },
+    { id: 3, nome: "Azul"},
+    { id: 4, nome: "Branco"},
+    { id: 5, nome: "Preto"}
+];
+
+//Exemplo 1: utilizando um laço foreach
+//Criando um novo array para receber os nomes
+//Percorrendo o array cores e atribuindo ao novo array os nomes
+function apenasNomesDoArrayCores() {
+    let nomesCores = [];
+
+    cores.forEach(function (cor) {
+
+        nomesCores.push(cor.nome);
+
+        });
+    
+    console.log(nomesCores);
+}
+
+// apenasNomesDoArrayCores()
+
+//**********
+
+//Exemplo 2: utilizando arrow function
+const coresNomes = cores.map(cor => cor.nome);
+console.log(coresNomes);
+
+
+
