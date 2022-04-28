@@ -305,7 +305,9 @@ function apenasNomesDoArrayCores() {
 
 //Exemplo 2: utilizando arrow function
 const coresNomes = cores.map(cor => cor.nome);
-console.log(coresNomes);
+// console.log(coresNomes);
+
+//**********
 
 
 
