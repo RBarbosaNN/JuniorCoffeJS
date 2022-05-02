@@ -71,3 +71,14 @@ GO
 INSERT INTO Funcionarios (matricula, nome, data_nascimento, sexo, departamento)
 values(250, 'Wagner Oliveira', '1970-12-15', 'Masculino', 'Tecnologia')
 GO
+
+--Trazendo uma tabela relacionada
+
+select f.nome AS 'Nome do funcionário', d.gerente AS 'Gerente_Funcionário'
+from Funcionarios AS f
+inner join Departamento as d
+on d.departamento = f.departamento
+
+--Estudar/testar outros relacionamentos com essas tabelas que foram criadas. Achei bem interessante! 
+
+
