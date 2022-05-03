@@ -81,4 +81,16 @@ on d.departamento = f.departamento
 
 --Estudar/testar outros relacionamentos com essas tabelas que foram criadas. Achei bem interessante! 
 
+--Perfeito, estudo concluído! Podemos dar apelido inclusive para as tabelas.
+--A query abaixo foi criada após esse entendimento e, traz o nome, matricula, data de desligamento, departamento do funcionario
+--e departamento do gerente. Onde a data de desligamento seja diferente de null.
 
+select tbF.nome as nome_do_funcionario,
+        tbF.matricula as matricula,
+        tbF.data_desligamento as demitido_em,
+        tbF.departamento as departamento_do_funcionario,
+        tbD.gerente as departamento_do_gerente
+    from Funcionarios as tbF
+    inner join Departamento as tbD
+    on tbD.departamento = tbF.departamento
+    where data_desligamento is not NULL
