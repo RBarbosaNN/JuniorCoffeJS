@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento window.load e document.load</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="lipsum">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, nostrum, 
+            eligendi illo ex quidem neque velit laborum eos perspiciatis sequi exercitationem 
+            dolorem eum repudiandae. Officia eius veniam voluptatum obcaecati sapiente.</p>
+            <img src="https://picsum.photos/id/0/367/267">
+            <img src="https://picsum.photos/id/1/367/267"/>
+            <img src="https://picsum.photos/id/10/367/267"/>
+            <img src="https://picsum.photos/id/100/367/267"/>
+            <img src="https://picsum.photos/id/1000/367/267"/>
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            alert('Evento window.load disparado!');
+        }
+
+        $(function(){
+            alert('Evento document.ready disparando');
+        })
+    </script>
+            
+</body>
+</html>
