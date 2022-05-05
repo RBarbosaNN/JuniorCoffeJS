@@ -39,6 +39,10 @@
             .done(function(msg) {
 
                 //Em caso de sucesso, mostra na div #resultado o retorno da requisição
+
+                //console.log('Retorno: ' + JSON.stringify(msg) );
+                //console.dir(msg);
+                
                 //Assim como o método $.each, esse método percorre um array
 
                 $.map(msg["movies[]"] , function(val, i) {
