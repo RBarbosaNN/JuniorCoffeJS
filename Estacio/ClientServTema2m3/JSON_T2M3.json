@@ -1,0 +1,36 @@
+{
+    "Products": {
+        "Product": [
+            {
+                "Product_ID": "7631",
+                "SKU": "HEH-9133",
+                "Name": "On Cloud Nine Pillow",
+                "Product_URL": "https://www.domain.com/product/heh-9133",
+                "Price": "24.99",
+                "Retail_Price": "24.99",
+                "Thumbnail_URL": "https://www.domain.com/images/heh-9133_600x600.png",
+                "Search_Keywords": "lorem, ipsum, dolor, ...",
+                "Description": "Sociosqu facilisis duis ...",
+                "Category": "Home>Home Decor>Pillows|Back In Stock",
+                "Category_ID": "298|511",
+                "Brand": "FabDecor",
+                "Child_SKU": "",
+                "Child_Price": "",
+                "Color": "White",
+                "Color_Family": "White",
+                "Color_Swatches": "",
+                "Size": "",
+                "Shoe_Size": "",
+                "Pants_Size": "",
+                "Occassion": "",
+                "Season": "",
+                "Badges": "",
+                "Rating_Avg": "4.2",
+                "Rating_Count": "8",
+                "Inventory_Count": "21",
+                "Date_Created": "2018-03-03 17:41:20"
+            }
+        ]
+    }
+}
+
