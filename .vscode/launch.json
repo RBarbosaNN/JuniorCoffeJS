@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld",
+            "projectName": "PrivadoCoffeJS_a775833a"
+        },
+        {
             "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
