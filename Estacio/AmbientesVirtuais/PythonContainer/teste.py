@@ -1,3 +1,8 @@
+s = 0
+a = 1
+while s < 5:
+    s = 3*a
+    a += 1
+    print(s)
 
-print("Olá Mundo! Olá mundo de novo. E ola mundo mais uma vez")
-
+    
