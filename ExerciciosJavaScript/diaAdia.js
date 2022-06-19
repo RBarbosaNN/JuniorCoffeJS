@@ -35,6 +35,8 @@
     20/02/2022 - Construir uma função para testar se a conversão de string para number deu certo
 
     20/03/2022 - Construir uma função que separa o nome do usuario do dominio de e-mail
+
+    19/06/2022 - Construir uma função para inverter a string
  */
 
 
@@ -310,4 +312,21 @@ const coresNomes = cores.map(cor => cor.nome);
 //**********
 
 
+//Inverte string
 
+let xString = "contrário";
+
+function inverteString(str) {
+    let stringInvertida = "";
+    try {
+        str.split();
+        for(let i = str.length - 1; i >= 0; i--) {
+            stringInvertida += str[i];
+        }
+        console.log(stringInvertida);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+inverteString(xString);
