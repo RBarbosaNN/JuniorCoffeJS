@@ -329,4 +329,4 @@ function inverteString(str) {
     }
 }
 
-inverteString(xString);
+// inverteString(xString);
