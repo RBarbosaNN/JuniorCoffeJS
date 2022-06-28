@@ -1,0 +1,3 @@
+Fazendo um teste para ver se o fs do Node realmente consegue ler o que esta escrito aqui.
+
+Vamos ver como essa leitura funciona quando pulamos linha. Se chegou até aqui, é porque pulou linha certinho.
