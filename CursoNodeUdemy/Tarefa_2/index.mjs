@@ -1,5 +1,4 @@
 import inquirer from "inquirer";
-import chalk from 'inquirer';
 
 
 function talkToUser() {
