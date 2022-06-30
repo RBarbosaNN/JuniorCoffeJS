@@ -37,6 +37,8 @@
     20/03/2022 - Construir uma função que separa o nome do usuario do dominio de e-mail
 
     19/06/2022 - Construir uma função para inverter a string
+
+    29/06/2022 - Criar uma Classe que terá a função de calculadora, cujo os objetos serão as operações: soma, subtrai, divide e multiplica.
  */
 
 
@@ -330,3 +332,35 @@ function inverteString(str) {
 }
 
 // inverteString(xString);
+
+class Calculadora {
+
+    constructor(n1, n2) {
+        this.n1 = n1;
+        this.n2 = n2;
+    }
+
+    soma() {
+        return `A soma entre ${this.n1} + ${this.n2} = ${this.n1 + this.n2};`
+    }
+
+    sub() {
+        return `A subtração entre ${this.n1} - ${this.n2} = ${this.n1 - this.n2};`
+    }
+
+    divide() {
+        return `A divisão entre ${this.n1} / ${this.n2} = ${parseFloat(this.n1 / this.n2).toFixed(2)};`
+    }
+
+    mult() {
+        return `A multiplicação entre ${this.n1} x ${this.n2} = ${this.n1 * this.n2};`
+    }
+
+}
+
+const c1 = new Calculadora(7, 3);
+console.log(c1.soma());
+console.log(c1.sub());
+console.log(c1.divide());
+console.log(c1.mult());
+
