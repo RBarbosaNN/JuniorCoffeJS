@@ -359,8 +359,14 @@ class Calculadora {
 }
 
 const c1 = new Calculadora(7, 3);
-console.log(c1.soma());
-console.log(c1.sub());
-console.log(c1.divide());
-console.log(c1.mult());
+// console.log(c1.soma());
+// console.log(c1.sub());
+// console.log(c1.divide());
+// console.log(c1.mult());
 
+let teste = 200;
+if (teste > 100) {
+    let teste = 1;
+}
+
+console.log(teste);
