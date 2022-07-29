@@ -364,9 +364,20 @@ const c1 = new Calculadora(7, 3);
 // console.log(c1.divide());
 // console.log(c1.mult());
 
-let teste = 200;
-if (teste > 100) {
-    let teste = 1;
+function escreveAoContrario(strOriginal) {
+    let strFinal = "";
+    if(typeof(strOriginal) !== 'string') {
+        console.log('Favor passar uma string como parametro da função');
+    }
+    try {
+        for(let i = strOriginal.length-1; i >= 0; i--) {
+            strFinal += strOriginal[i];
+        }
+        console.log(strFinal);
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 
-console.log(teste);
+
+escreveAoContrario('Leviathan');
